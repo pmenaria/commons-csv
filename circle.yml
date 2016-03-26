@@ -1,6 +1,15 @@
 
+machine:
+  ruby:
+    version: rbx-2.2.6
+
+general:
+   artifacts:
+     - $CIRCLE_TEST_REPORTS
+     - target
+     
 test:
- override:
+  override:
     - mvn clean install
  post:
    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
